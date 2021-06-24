@@ -5,9 +5,15 @@ module.exports = app => {
   
     // Create a new Tutorial
     router.post("/", students.create);
+
+    //find students by class
+    router.get("/class/:id", students.findStudents);
   
-    // Retrieve all Tutorials
-    // router.get("/", tutorials.findAll);
+    // edit student
+    router.put("/:id", students.update);
+
+     // edit student
+     router.put("/:id", students.update);
   
     // // Retrieve all published Tutorials
     // router.get("/published", tutorials.findAllPublished);

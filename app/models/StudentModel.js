@@ -7,7 +7,13 @@ module.exports = (sequelize, Sequelize) => {
         },
         name: {
             type: Sequelize.STRING
-        },
+        }
+    },
+    {
+        updatedAt: "updatedAt",
+        createdAt: "createdAt",
+        deletedAt: "deletedAt",
+        paranoid: true
     });
     return Students;
 };    

@@ -4,7 +4,13 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
+        }
+    },
+    {
+        updatedAt: "updatedAt",
+        createdAt: "createdAt",
+        deletedAt: "deletedAt",
+        paranoid: true
     });
     return TeacherClass;
 };    

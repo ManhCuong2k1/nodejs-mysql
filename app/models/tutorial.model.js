@@ -8,7 +8,14 @@ module.exports = (sequelize, Sequelize) => {
         },
         published: {
             type: Sequelize.BOOLEAN
-        }
-    });
+        },
+    },
+    {
+        updatedAt: "updatedAt",
+        createdAt: "createdAt",
+        deletedAt: "deletedAt",
+        paranoid: true
+    }
+);
     return Tutorial;
 };    

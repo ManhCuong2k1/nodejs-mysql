@@ -1,16 +1,16 @@
-const db = require("../models");
+const db = require("../models/index.js");
 const Teachers = db.teachers;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
   // Validate request
-  // if (!req.body.name) {
-  //   res.status(400).send({
-  //     message: "Content can not be empty."
-  //   });
-  //   return;
-  // }
+  if (!req.body.name) {
+    res.status(400).send({
+      message: "Content can not be empty."
+    });
+    return;
+  }
 
   // Create a Tutorial
   const teacher = req.body;
@@ -27,4 +27,3 @@ exports.create = (req, res) => {
       });
     });
 };
-
