@@ -3,7 +3,7 @@ module.exports = app => {
   
     var router = require("express").Router();
   
-    // Create a new Tutorial
+    // Create a new teacher_class
     router.post("/", teacherClass.create);
 
     //find teachers by class
@@ -13,4 +13,4 @@ module.exports = app => {
     router.get('/teacher/:id', teacherClass.findClass);
   
     app.use('/api/teacher_class', router);
-  };    
+  };

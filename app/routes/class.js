@@ -2,27 +2,21 @@ module.exports = app => {
     const classs = require("../controllers/classController.js");
   
     var router = require("express").Router();
+
+    // Get all class
+    router.get("/", classs.getAll);
   
-    // Create a new Tutorial
+    // Create a new Class
     router.post("/", classs.create);
   
-    // Retrieve all Tutorials
-    // router.get("/", tutorials.findAll);
-  
-    // // Retrieve all published Tutorials
-    // router.get("/published", tutorials.findAllPublished);
-  
-    // // Retrieve a single Tutorial with id
-    // router.get("/:id", tutorials.findOne);
-  
-    // // Update a Tutorial with id
-    // router.put("/:id", tutorials.update);
-  
-    // // Delete a Tutorial with id
-    // router.delete("/:id", tutorials.delete);
-  
-    // // Create a new Tutorial
-    // router.delete("/", tutorials.deleteAll);
+    // Update Class
+    router.put("/:id", classs.update);
+
+    // Delete Class
+    router.delete("/:id", classs.delete);
+
+    // Restore Class
+    router.post("/restore/:id", classs.restore);
   
     app.use('/api/class', router);
   };    
