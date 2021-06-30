@@ -17,6 +17,23 @@ exports.getAll = async (req, res) => {
   }
 };
 
+exports.getClassDetail = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const classes = await Classes.findOne({
+      where : {
+        ID: id
+      }
+    });
+    res.send(classes);
+  } catch (error) {
+    res.status(500).send({
+      message:
+      error.message || "Some error occurred while creating the Tutorial."
+    });
+  }
+}
+
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
   const classes = req.body;

@@ -7,6 +7,7 @@ const Op = db.Sequelize.Op;
 exports.getAll = async (req, res) => {
   try {
     const student = await Students.findAll({
+      paranoid: false,
       include: Class,
     });
     res.send(student);
@@ -17,6 +18,24 @@ exports.getAll = async (req, res) => {
     });
   }
 };
+
+//get detail
+exports.getStudentDetail = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const student = await Students.findOne({
+      where : {
+        ID: id
+      }
+    });
+    res.send(student);
+  } catch (error) {
+    res.status(500).send({
+      message:
+      error.message || "Some error occurred while creating the Tutorial."
+    });
+  }
+}
 
 // Create and Save a new Tutorial
 exports.create = (req, res) => {

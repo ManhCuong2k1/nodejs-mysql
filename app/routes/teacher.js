@@ -6,6 +6,9 @@ module.exports = app => {
   // get All
   router.get("/", teachers.getAll);
 
+  // get all 
+  router.get("/:id", teachers.getTeacherDetail);
+
   // Create a new Teacher
   router.post("/", teachers.create);
 
