@@ -116,3 +116,23 @@ exports.restore = async (req, res) => {
   }
 };
 
+exports.search = async (req, res) => {
+  try {
+    const searchKey= req.query.searchKey ? req.query.searchKey.toString() : "";
+    const classes = await Classes.findAll({
+      where: {
+        name: {
+          [Op.like] : `%${searchKey}%`
+        }
+      }
+    })
+    // await classes.save();
+    res.send(classes);
+  } catch (error) {
+    res.status(500).send({
+      message:
+      error.message || "Some error occurred while creating the Tutorial."
+    });
+  }
+};
+

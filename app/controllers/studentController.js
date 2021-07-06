@@ -65,6 +65,7 @@ exports.update = async (req, res) => {
     if(update.name === null)  throw Error ("name invalid");
 
     student.name = update.name;
+    student.classID = update.classID;
 
     student.save();
     const studentJSON = student.toJSON();

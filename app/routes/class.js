@@ -7,7 +7,7 @@ module.exports = app => {
     router.get("/", classs.getAll);
   
     //get class id
-    router.get("/:id", classs.getClassDetail);
+    router.get("/detail/:id", classs.getClassDetail);
 
     // Create a new Class
     router.post("/", classs.create);
@@ -20,6 +20,9 @@ module.exports = app => {
 
     // Restore Class
     router.post("/restore/:id", classs.restore);
+
+    // Search Class
+    router.get("/search", classs.search);
   
     app.use('/api/class', router);
   };    
